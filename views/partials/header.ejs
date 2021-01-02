@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bloggin'</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Langar&display=swap" rel="stylesheet">
+    </head>
+<body>
+   <div class="wrapper">
+    <header>
+    <div class="header-logo">
+    <h2><a href="/blog">Bloggin' Site</a></h2>
+    </div>
+    <div class="header-left">
+    <li><a href="#" class="icon">About</a></li>
+    <li><a href="#" class="icon">Contact Us</a></li>
+    <li></li>
+    </div>
+    <div class="header-right">
+    <% if(!currentUser){ %>
+    <li><a href="/register" class="icon">Register</a></li>
+    <li><a href="/login" class="icon">Login</a></li>
+    </div>
+    <% }else { %>
+    <li class="icon">Signed in as - <%=currentUser.username%></li>
+    <li><a class="icon" href="/logout">Log Out</a></li>
+    <% } %>
+    </header>

@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+<div class="user-section">
+<h1>Edit your blog here</h1>
+
+<form action="/blog/<%=blog._id%>?_method=PUT" method="POST">
+    <label for="title">Edit the title here</label>
+    <input id="title" name="blog[title]" type="text" value="<%=blog.title%>">
+    <br>
+    <label for="content">Edit content here</label>
+    <input id="content" name="blog[content]" value="<%=blog.content%>">
+    <br>
+    <button class="btn edi">Submit</button>
+</form>
+</div>
+<%- include('../partials/footer') %>

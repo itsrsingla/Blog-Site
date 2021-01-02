@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+
+
+<div class="show-section">
+    <div class="blog-content">
+        <h3><%=blog.title%></h3>
+        <p><%-blog.content%></p>
+        <p>Written by - <%=blog.author.username%></p>
+        <% if(currentUser && blog.author.id.equals(currentUser._id)){  %>  
+        <button class="btn edi"><a href="/blog/<%=blog._id%>/edit">Edit</a></button>
+        <form action="/blog/<%=blog._id%>?_method=DELETE" method="POST">
+            <button class="btn del">Delete</button>
+        </form>
+        <% } %>
+    </div>
+    <div class="comment-section">    
+        <div class="comment-top">
+            <h2>Comments are here</h2>
+            <a href="/blog/<%=blog._id%>/comment/new"><button class="btn edi ">Add Comment</button></a>
+        </div>
+        <% blog.comment.forEach(function(comm){ %>
+            <div class="individual-comment">
+                <h4><%=comm.author.username%></h4>
+                <p>-> <%= comm.data %></p>
+                <% if(currentUser && comm.author.id.equals(currentUser._id)){  %>  
+                <a href="/blog/<%=blog._id%>/comment/<%=comm._id%>/edit"><button class="btn edi">Edit</button></a>
+                <form action="/blog/<%=blog._id%>/comment/<%=comm._id%>?_method=DELETE" method="POST">
+                    <button class="btn del">Delete</button>
+                </form>
+                 <% } %>
+            </div>
+            <hr>
+        <% }); %>
+        </div>
+</div>
+<%- include('../partials/footer') %>
+
+

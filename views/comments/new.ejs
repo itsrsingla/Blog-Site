@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+<div class="user-section">
+<h1>Write a new comment here</h1>
+
+<form action="/blog/<%=blog._id%>/comment" method="POST">
+    <label for="comment">Write the comment here</label>
+    <input id="comment" name="data" type="text">
+    <br>
+    <button class="btn edi">Submit</button>
+</form>
+</div>
+<%- include('../partials/footer') %>
